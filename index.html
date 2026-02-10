@@ -1,4 +1,564 @@
 <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerbang Pelabuhan - HIMASTA ITS 2026</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Animated background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(33, 150, 243, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            width: 95%;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* LOGO STYLING */
+        .logo-section {
+            margin-bottom: 25px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            max-width: 140px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(102, 126, 234, 0.4));
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 6px 15px rgba(102, 126, 234, 0.6));
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* INPUT SECTION */
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: rgba(102, 126, 234, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* BUTTON STYLING */
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* ERROR MESSAGE */
+        .error-message {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.5);
+            color: #ff6b6b;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            min-height: 20px;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        /* LOADING PAGE */
+        .loading-text {
+            font-size: 1.1em;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 20px auto;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid rgba(102, 126, 234, 0.8);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* RESULT PAGE */
+        .success-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .department-name {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .department-name span {
+            display: inline-block;
+            opacity: 0;
+            transform: rotateY(90deg);
+            animation: spinIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .department-name span:nth-child(1) { animation-delay: 0s; }
+        .department-name span:nth-child(2) { animation-delay: 0.08s; }
+        .department-name span:nth-child(3) { animation-delay: 0.16s; }
+        .department-name span:nth-child(4) { animation-delay: 0.24s; }
+        .department-name span:nth-child(5) { animation-delay: 0.32s; }
+        .department-name span:nth-child(6) { animation-delay: 0.40s; }
+        .department-name span:nth-child(7) { animation-delay: 0.48s; }
+        .department-name span:nth-child(8) { animation-delay: 0.56s; }
+        .department-name span:nth-child(9) { animation-delay: 0.64s; }
+        .department-name span:nth-child(10) { animation-delay: 0.72s; }
+
+        @keyframes spinIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .back-button {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .department-name {
+                font-size: 1.6em;
+            }
+
+            input[type="text"],
+            button {
+                font-size: 0.95em;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- INPUT PAGE -->
+        <div id="inputPage" class="page active">
+            <div class="logo-section">
+                <img src="logo.png" alt="Logo HIMASTA ITS 2026" class="logo">
+            </div>
+
+            <h1>🚢 Gerbang Pelabuhan</h1>
+            <p class="subtitle">Masukkan Kode Takdirmu</p>
+
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="codeInput" 
+                    placeholder="Contoh: KM209D"
+                    onkeypress="if(event.key === 'Enter') openGate()"
+                >
+            </div>
+
+            <button onclick="openGate()">🔓 Buka Pelabuhan</button>
+
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+
+        <!-- LOADING PAGE -->
+        <div id="loadingPage" class="page">
+            <h1>⚓ Menentukan Labuhan</h1>
+            <div class="spinner"></div>
+            <p class="loading-text">Mencocokkan peran terbaikmu…</p>
+        </div>
+
+        <!-- RESULT PAGE -->
+        <div id="resultPage" class="page">
+            <div class="success-icon">✅</div>
+            <h1>Selamat!</h1>
+
+            <div class="department-name" id="departmentDisplay"></div>
+
+            <p class="message">
+                Kamu telah <b>beresonansi sinergis</b><br>
+                bersama <b>HIMASTA-ITS 2026</b>.<br><br>
+                Bersama, kita bergerak.<br>
+                Bersama, kita bertumbuh.<br>
+                Bersama, kita bermakna. 🌊
+            </p>
+
+            <button class="back-button" onclick="backToInput()">← Kembali</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // DATA DEPARTEMEN (80 KODE)
+        // ============================================
+        const departmentData = {
+            // BENDAHARA (1)
+            'YZ202BU': { departemen: 'BENDAHARA' },
+
+            // SEKRETARIS (1)
+            'AZ34SU': { departemen: 'SEKRETARIS' },
+            
+            // SMO (6)
+            'FI81SM': { departemen: 'SMO' },
+            'IA198SM': { departemen: 'SEKRETARIS' },
+            'DW164SM': { departemen: 'SEKRETARIS' },
+            'LH61SM': { departemen: 'SEKRETARIS' },
+            'DY12SM': { departemen: 'SEKRETARIS' },
+            'RF206SM': { departemen: 'SEKRETARIS' },
+
+
+            // DAGRI (8)
+            'KM209D': { departemen: 'DAGRI' },
+            'SA25D': { departemen: 'DAGRI' },
+            'SR29D': { departemen: 'DAGRI' },
+            'KT188D': { departemen: 'DAGRI' },
+            'NR122D': { departemen: 'DAGRI' },
+            'SA13D': { departemen: 'DAGRI' },
+            'MT25D': { departemen: 'DAGRI' },
+            'RA78D': { departemen: 'DAGRI' },
+
+            // HUBLU (7)
+            'VN10H': { departemen: 'HUBLU' },
+            'NM182H': { departemen: 'HUBLU' },
+            'DR11H': { departemen: 'HUBLU' },
+            'AA56H': { departemen: 'HUBLU' },
+            'TH26H': { departemen: 'HUBLU' },
+            'MR143H': { departemen: 'HUBLU' },
+            'MN147H': { departemen: 'HUBLU' },
+
+            // SOSMAS (5)
+            'RM191S': { departemen: 'SOSMAS' },
+            'ML115S': { departemen: 'SOSMAS' },
+            'MI74S': { departemen: 'SOSMAS' },
+            'WP118S': { departemen: 'SOSMAS' },
+            'GP90S': { departemen: 'SOSMAS' },
+
+            // KESMA (7)
+            'RH104KM': { departemen: 'KESMA' },
+            'HE58KM': { departemen: 'KESMA' },
+            'EK64KM': { departemen: 'KESMA' },
+            'RP99KM': { departemen: 'KESMA' },
+            'AA20KM': { departemen: 'KESMA' },
+            'HN70KM': { departemen: 'KESMA' },
+            'AS174KM': { departemen: 'KESMA' },
+
+            // KEIL (6)
+            'QS112K': { departemen: 'KEIL' },
+            'LK163K': { departemen: 'KEIL' },
+            'AB168K': { departemen: 'KEIL' },
+            'NA48K': { departemen: 'KEIL' },
+            'GN136K': { departemen: 'KEIL' },
+            'RT28K': { departemen: 'KEIL' },
+
+            // KWU (7)
+            'MD171KW': { departemen: 'KWU' },
+            'ZF180KW': { departemen: 'KWU' },
+            'AA132KW': { departemen: 'KWU' },
+            'IF186KW': { departemen: 'KWU' },
+            'FD36KW': { departemen: 'KWU' },
+            'RS97KW': { departemen: 'KWU' },
+            'WB121KW': { departemen: 'KWU' },
+
+            // KOMINFO (7)
+            'NS119KF': { departemen: 'KOMINFO' },
+            'SN187KF': { departemen: 'KOMINFO' },
+            'NW205KF': { departemen: 'KOMINFO' },
+            'JS66KF': { departemen: 'KOMINFO' },
+            'EH108KF': { departemen: 'KOMINFO' },
+            'AW36KF': { departemen: 'KOMINFO' },
+            'HP6KF': { departemen: 'KOMINFO' },
+
+            // MINBA (1)
+            'MA183M': { departemen: 'MINBA' },
+            'AH71M': { departemen: 'MINBA' },
+            'WG59M': { departemen: 'MINBA' },
+            'NS166M': { departemen: 'MINBA' },
+            'JS55M': { departemen: 'MINBA' },
+            'AS201M': { departemen: 'MINBA' },
+
+            // PSDM-L (5)
+            'MS146PL': { departemen: 'PSDM-L' },
+            'NW92PL': { departemen: 'PSDM-L' },
+            'HG9PL': { departemen: 'PSDM-L' },
+            'RZ189PL': { departemen: 'PSDM-L' },
+            'GA114PL': { departemen: 'PSDM-L' },
+
+            // PSDM-D (7)
+            'DA176PD': { departemen: 'PSDM-D' },
+            'HE33PD': { departemen: 'PSDM-D' },
+            'GE24PD': { departemen: 'PSDM-D' },
+            'BF197PD': { departemen: 'PSDM-D' },
+            'ND93PD': { departemen: 'PSDM-D' },
+            'MA120PD': { departemen: 'PSDM-D' },
+            'FR135PD': { departemen: 'PSDM-D' }
+        };
+
+        // ============================================
+        // FUNGSI UTAMA
+        // ============================================
+        function openGate() {
+            const code = document.getElementById('codeInput').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('errorMessage');
+
+            // Validasi input
+            if (!code) {
+                errorMsg.textContent = '⚠️ Silakan masukkan kode akses!';
+                return;
+            }
+
+            if (!departmentData[code]) {
+                errorMsg.textContent = '❌ Kode tidak valid. Periksa kembali!';
+                return;
+            }
+
+            errorMsg.textContent = '';
+
+            // Tampilkan loading
+            showPage('loadingPage');
+
+            // Simulasi loading 2.8 detik
+            setTimeout(() => {
+                const dept = departmentData[code].departemen;
+                displayResult(dept);
+                showPage('resultPage');
+            }, 2800);
+        }
+
+        function displayResult(department) {
+            const displayElement = document.getElementById('departmentDisplay');
+            displayElement.innerHTML = '';
+
+            const text = 'DEPARTEMEN ' + department;
+            for (let char of text) {
+                const span = document.createElement('span');
+                span.textContent = char;
+                displayElement.appendChild(span);
+            }
+        }
+
+        function backToInput() {
+            document.getElementById('codeInput').value = '';
+            document.getElementById('errorMessage').textContent = '';
+            document.getElementById('codeInput').focus();
+            showPage('inputPage');
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Focus input saat halaman dimuat
+        window.addEventListener('load', () => {
+            document.getElementById('codeInput').focus();
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
