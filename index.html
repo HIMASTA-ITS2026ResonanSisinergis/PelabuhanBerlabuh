@@ -28,3 +28,175 @@
     </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pelabuhan Takdir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      padding: 32px;
+      background: rgba(0,0,0,0.45);
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.55);
+    }
+
+    img {
+      max-width: 160px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #00ffd5;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .loading {
+      margin-top: 20px;
+      font-style: italic;
+      animation: fade 1.3s infinite;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+
+    .dept {
+      margin-top: 18px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #00ffd5;
+    }
+
+    .message {
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- INPUT -->
+    <div id="inputPage">
+      <img src="logo.png" alt="Logo HIMASTA">
+      <h1>Gerbang Pelabuhan</h1>
+      <p>Masukkan <b>Kode Takdirmu</b></p>
+
+      <input type="text" id="codeInput" placeholder="Contoh: DF195G">
+      <button onclick="openGate()">Buka Pelabuhan</button>
+      <p id="error" style="color:#ff6b6b;"></p>
+    </div>
+
+    <!-- LOADING -->
+    <div id="loadingPage" class="hidden">
+      <h1>Menentukan Labuhan…</h1>
+      <p class="loading">Mencocokkan peran terbaikmu…</p>
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultPage" class="hidden">
+      <h1>🎉 Selamat!</h1>
+      <div class="dept" id="department"></div>
+
+      <p class="message">
+        Kamu telah <b>beresonansi sinergis</b><br>
+        bersama <b>HIMASTA-ITS 2026</b>.<br><br>
+        Bersama, kita bergerak.<br>
+        Bersama, kita bertumbuh.<br>
+        Bersama, kita bermakna.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    // =========================
+    // DATA KODE (PRIVATE)
+    // =========================
+    const data = {
+      "KM209D": { departemen: "DAGRI" },
+      "KT188D": { departemen: "DAGRI" },
+      "MT25D":  { departemen: "DAGRI" },
+      "NR122D": { departemen: "DAGRI" }
+
+      // TAMBAHKAN 76 DATA DI SINI
+    };
+
+    function openGate() {
+      const code = document.getElementById("codeInput").value.trim().toUpperCase();
+      const error = document.getElementById("error");
+
+      if (!data[code]) {
+        error.innerText = "Kode tidak valid. Periksa kembali.";
+        return;
+      }
+
+      error.innerText = "";
+      document.getElementById("inputPage").classList.add("hidden");
+      document.getElementById("loadingPage").classList.remove("hidden");
+
+      setTimeout(() => {
+        document.getElementById("loadingPage").classList.add("hidden");
+        document.getElementById("resultPage").classList.remove("hidden");
+
+        document.getElementById("department").innerText =
+          "DEPARTEMEN " + data[code].departemen;
+      }, 2800);
+    }
+  </script>
+</body>
+</html>
