@@ -729,17 +729,11 @@
             }, 1000);
         }
 
-        function displayResult(department, narasi) {
-            const displayElement = document.getElementById('departmentDisplay');
-            const narasiElement = document.getElementById('departmentNarasi');
-            
-            displayElement.innerHTML = '';
-            const text = 'DEPARTEMEN\u00A0' + department;
-            
-            for (let char of text) {
-                const span = document.createElement('span');
-                span.textContent = char;
-                displayElement.appendChild(span);
+            function displayResult(department, narasi) {
+            document.getElementById('departmentDisplay').textContent =
+            'DEPARTEMEN ' + department;
+
+            document.getElementById('departmentNarasi').textContent = narasi;
             }
             
             narasiElement.textContent = narasi;
