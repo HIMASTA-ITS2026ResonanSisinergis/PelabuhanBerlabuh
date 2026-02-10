@@ -271,117 +271,6 @@
             animation: spinIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
-        .department-name span:nth-child(1) { animation-delay: 0s; }
-        .department-name span:nth-child(2) { animation-delay: 0.08s; }
-        .department-name span:nth-child(3) { animation-delay: 0.16s; }
-        .department-name span:nth-child(4) { animation-delay: 0.24s; }
-        .department-name span:nth-child(5) { animation-delay: 0.32s; }
-        .department-name span:nth-child(6) { animation-delay: 0.40s; }
-        .department-name span:nth-child(7) { animation-delay: 0.48s; }
-        .department-name span:nth-child(8) { animation-delay: 0.56s; }
-        .department-name span:nth-child(9) { animation-delay: 0.64s; }
-        .department-name span:nth-child(10) { animation-delay: 0.72s; }
-    const departmentData = {
-            // BENDAHARA (1)
-            'YZ202BU': { departemen: 'BENDAHARA' },
-
-            // SEKRETARIS (1)
-            'AZ34SU': { departemen: 'SEKRETARIS' },
-            
-            // SMO (6)
-            'FI81SM': { departemen: 'SMO' },
-            'IA198SM': { departemen: 'SEKRETARIS' },
-            'DW164SM': { departemen: 'SEKRETARIS' },
-            'LH61SM': { departemen: 'SEKRETARIS' },
-            'DY12SM': { departemen: 'SEKRETARIS' },
-            'RF206SM': { departemen: 'SEKRETARIS' },
-
-
-            // DAGRI (8)
-            'KM209D': { departemen: 'DAGRI' },
-            'SA25D': { departemen: 'DAGRI' },
-            'SR29D': { departemen: 'DAGRI' },
-            'KT188D': { departemen: 'DAGRI' },
-            'NR122D': { departemen: 'DAGRI' },
-            'SA13D': { departemen: 'DAGRI' },
-            'MT25D': { departemen: 'DAGRI' },
-            'RA78D': { departemen: 'DAGRI' },
-
-            // HUBLU (7)
-            'VN10H': { departemen: 'HUBLU' },
-            'NM182H': { departemen: 'HUBLU' },
-            'DR11H': { departemen: 'HUBLU' },
-            'AA56H': { departemen: 'HUBLU' },
-            'TH26H': { departemen: 'HUBLU' },
-            'MR143H': { departemen: 'HUBLU' },
-            'MN147H': { departemen: 'HUBLU' },
-
-            // SOSMAS (5)
-            'RM191S': { departemen: 'SOSMAS' },
-            'ML115S': { departemen: 'SOSMAS' },
-            'MI74S': { departemen: 'SOSMAS' },
-            'WP118S': { departemen: 'SOSMAS' },
-            'GP90S': { departemen: 'SOSMAS' },
-
-            // KESMA (7)
-            'RH104KM': { departemen: 'KESMA' },
-            'HE58KM': { departemen: 'KESMA' },
-            'EK64KM': { departemen: 'KESMA' },
-            'RP99KM': { departemen: 'KESMA' },
-            'AA20KM': { departemen: 'KESMA' },
-            'HN70KM': { departemen: 'KESMA' },
-            'AS174KM': { departemen: 'KESMA' },
-
-            // KEIL (6)
-            'QS112K': { departemen: 'KEIL' },
-            'LK163K': { departemen: 'KEIL' },
-            'AB168K': { departemen: 'KEIL' },
-            'NA48K': { departemen: 'KEIL' },
-            'GN136K': { departemen: 'KEIL' },
-            'RT28K': { departemen: 'KEIL' },
-
-            // KWU (7)
-            'MD171KW': { departemen: 'KWU' },
-            'ZF180KW': { departemen: 'KWU' },
-            'AA132KW': { departemen: 'KWU' },
-            'IF186KW': { departemen: 'KWU' },
-            'FD36KW': { departemen: 'KWU' },
-            'RS97KW': { departemen: 'KWU' },
-            'WB121KW': { departemen: 'KWU' },
-
-            // KOMINFO (7)
-            'NS119KF': { departemen: 'KOMINFO' },
-            'SN187KF': { departemen: 'KOMINFO' },
-            'NW205KF': { departemen: 'KOMINFO' },
-            'JS66KF': { departemen: 'KOMINFO' },
-            'EH108KF': { departemen: 'KOMINFO' },
-            'AW36KF': { departemen: 'KOMINFO' },
-            'HP6KF': { departemen: 'KOMINFO' },
-
-            // MINBA (1)
-            'MA183M': { departemen: 'MINBA' },
-            'AH71M': { departemen: 'MINBA' },
-            'WG59M': { departemen: 'MINBA' },
-            'NS166M': { departemen: 'MINBA' },
-            'JS55M': { departemen: 'MINBA' },
-            'AS201M': { departemen: 'MINBA' },
-
-            // PSDM-L (5)
-            'MS146PL': { departemen: 'PSDM-L' },
-            'NW92PL': { departemen: 'PSDM-L' },
-            'HG9PL': { departemen: 'PSDM-L' },
-            'RZ189PL': { departemen: 'PSDM-L' },
-            'GA114PL': { departemen: 'PSDM-L' },
-
-            // PSDM-D (7)
-            'DA176PD': { departemen: 'PSDM-D' },
-            'HE33PD': { departemen: 'PSDM-D' },
-            'GE24PD': { departemen: 'PSDM-D' },
-            'BF197PD': { departemen: 'PSDM-D' },
-            'ND93PD': { departemen: 'PSDM-D' },
-            'MA120PD': { departemen: 'PSDM-D' },
-            'FR135PD': { departemen: 'PSDM-D' }
-        };
         @keyframes spinIn {
             0% {
                 opacity: 0;
@@ -393,19 +282,31 @@
             }
         }
 
+        .department-narasi {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(102, 126, 234, 0.15);
+            border-left: 3px solid rgba(102, 126, 234, 0.6);
+            border-radius: 8px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
         .message {
             margin-top: 20px;
             font-size: 0.95em;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.85);
-            animation: fadeInUp 1s ease-out 1.2s both;
+            animation: fadeInUp 1s ease-out 1.5s both;
         }
 
         .back-button {
             margin-top: 25px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            animation: fadeInUp 1s ease-out 1.5s both;
+            animation: fadeInUp 1s ease-out 2s both;
         }
 
         .back-button:hover {
@@ -474,11 +375,16 @@
             <div class="success-icon">✅</div>
             <h1>Selamat!</h1>
 
-            <div class="department-name" id="departmentData"></div>
+            <div class="department-name" id="departmentDisplay"></div>
+            <div class="department-narasi" id="departmentNarasi"></div>
 
             <p class="message">
-                Halo Staf yang Sedang Ingin Berlabuh!
-                Temukan Tempat Berlabuhmu!
+                Selamat Bergabung dengan Kabinet<br>
+                Resonansi Sinergis HIMASTA-ITS 2026.<br><br>
+                Vivat!<br>
+                Statistika Pilihanku!<br>
+                Harapanku!<br>
+                Perjuanganku! 🌊
             </p>
 
             <button class="back-button" onclick="backToInput()">← Kembali</button>
@@ -487,108 +393,327 @@
 
     <script>
         // ============================================
-        // DATA DEPARTEMEN (80 KODE)
+        // DATA DEPARTEMEN DENGAN NARASI
         // ============================================
         const departmentData = {
             // BENDAHARA (1)
-            'YZ202BU': { departemen: 'BENDAHARA' },
+            'YZ202BU': { 
+                departemen: 'BENDAHARA',
+                narasi: 'Mengelola keuangan dan administrasi keuangan dengan profesional dan transparan.'
+            },
 
             // SEKRETARIS (1)
-            'AZ34SU': { departemen: 'SEKRETARIS' },
-            
-            // SMO (6)
-            'FI81SM': { departemen: 'SMO' },
-            'IA198SM': { departemen: 'SEKRETARIS' },
-            'DW164SM': { departemen: 'SEKRETARIS' },
-            'LH61SM': { departemen: 'SEKRETARIS' },
-            'DY12SM': { departemen: 'SEKRETARIS' },
-            'RF206SM': { departemen: 'SEKRETARIS' },
+            'AZ34SU': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola arsipan, dokumentasi, dan koordinasi administrasi umum dengan presisi.'
+            },
 
+            // SMO (6)
+            },
+            'IA198SM': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
+            'DW164SM': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
+            'LH61SM': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
+            'DY12SM': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
+            'RF206SM': { 
+                departemen: 'SEKRETARIS',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
+            'FI81SM': { 
+                departemen: 'SMO',
+                narasi: 'Mengelola dan mengarahkan strategi manajemen organisasi agar berjalan efektif dan terintegrasi.'
+            },
 
             // DAGRI (8)
-            'KM209D': { departemen: 'DAGRI' },
-            'SA25D': { departemen: 'DAGRI' },
-            'SR29D': { departemen: 'DAGRI' },
-            'KT188D': { departemen: 'DAGRI' },
-            'NR122D': { departemen: 'DAGRI' },
-            'SA13D': { departemen: 'DAGRI' },
-            'MT25D': { departemen: 'DAGRI' },
-            'RA78D': { departemen: 'DAGRI' },
+            'KM209D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'SA25D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'SR29D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'KT188D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'NR122D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'SA13D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'MT25D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
+            'RA78D': { 
+                departemen: 'DAGRI',
+                narasi: 'Meningkatkan harmonasi dan menjaga forum dengan tepat.'
+            },
 
             // HUBLU (7)
-            'VN10H': { departemen: 'HUBLU' },
-            'NM182H': { departemen: 'HUBLU' },
-            'DR11H': { departemen: 'HUBLU' },
-            'AA56H': { departemen: 'HUBLU' },
-            'TH26H': { departemen: 'HUBLU' },
-            'MR143H': { departemen: 'HUBLU' },
-            'MN147H': { departemen: 'HUBLU' },
+            'VN10H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'NM182H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'DR11H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'AA56H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'TH26H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'MR143H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
+            'MN147H': { 
+                departemen: 'HUBLU',
+                narasi: 'Menjalin hubungan dengan pihak luar dan koordinasi dengan mitra.'
+            },
 
             // SOSMAS (5)
-            'RM191S': { departemen: 'SOSMAS' },
-            'ML115S': { departemen: 'SOSMAS' },
-            'MI74S': { departemen: 'SOSMAS' },
-            'WP118S': { departemen: 'SOSMAS' },
-            'GP90S': { departemen: 'SOSMAS' },
+            'RM191S': { 
+                departemen: 'SOSMAS',
+                narasi: 'Mengembangkan program tanggung jawab sosial dan pemberdayaan masyarakat sekitar.'
+            },
+            'ML115S': { 
+                departemen: 'SOSMAS',
+                narasi: 'Mengembangkan program tanggung jawab sosial dan pemberdayaan masyarakat sekitar.'
+            },
+            'MI74S': { 
+                departemen: 'SOSMAS',
+                narasi: 'Mengembangkan program tanggung jawab sosial dan pemberdayaan masyarakat sekitar.'
+            },
+            'WP118S': { 
+                departemen: 'SOSMAS',
+                narasi: 'Mengembangkan program tanggung jawab sosial dan pemberdayaan masyarakat sekitar.'
+            },
+            'GP90S': { 
+                departemen: 'SOSMAS',
+                narasi: 'Mengembangkan program tanggung jawab sosial dan pemberdayaan masyarakat sekitar.'
+            },
 
             // KESMA (7)
-            'RH104KM': { departemen: 'KESMA' },
-            'HE58KM': { departemen: 'KESMA' },
-            'EK64KM': { departemen: 'KESMA' },
-            'RP99KM': { departemen: 'KESMA' },
-            'AA20KM': { departemen: 'KESMA' },
-            'HN70KM': { departemen: 'KESMA' },
-            'AS174KM': { departemen: 'KESMA' },
+            'RH104KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'HE58KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'EK64KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'RP99KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'AA20KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'HN70KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
+            'AS174KM': { 
+                departemen: 'KESMA',
+                narasi: 'Mengupayakan dan menjaga kesejahteraan mahasiswa melalui pendampingan, advokasi, dan kepedulian bersama.'
+            },
 
             // KEIL (6)
-            'QS112K': { departemen: 'KEIL' },
-            'LK163K': { departemen: 'KEIL' },
-            'AB168K': { departemen: 'KEIL' },
-            'NA48K': { departemen: 'KEIL' },
-            'GN136K': { departemen: 'KEIL' },
-            'RT28K': { departemen: 'KEIL' },
+            'QS112K': { 
+                departemen: 'KEIL',
+                narasi: 'Memabantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
+            'LK163K': { 
+                departemen: 'KEIL',
+                narasi: 'Memabantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
+            'AB168K': { 
+                departemen: 'KEIL',
+                narasi: 'Memabantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
+            'NA48K': { 
+                departemen: 'KEIL',
+                narasi: 'Memabantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
+            'GN136K': { 
+                departemen: 'KEIL',
+                narasi: 'Membantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
+            'RT28K': { 
+                departemen: 'KEIL',
+                narasi: 'Memabantu mengembangkan budaya keilmiahan, semangat kompetisi, dan pemikiran kritis mahasiswa.'
+            },
 
             // KWU (7)
-            'MD171KW': { departemen: 'KWU' },
-            'ZF180KW': { departemen: 'KWU' },
-            'AA132KW': { departemen: 'KWU' },
-            'IF186KW': { departemen: 'KWU' },
-            'FD36KW': { departemen: 'KWU' },
-            'RS97KW': { departemen: 'KWU' },
-            'WB121KW': { departemen: 'KWU' },
+            'MD171KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'ZF180KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'AA132KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'IF186KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'FD36KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'RS97KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
+            'WB121KW': { 
+                departemen: 'KWU',
+                narasi: 'Mengembangkan inisiatif usaha dan mendukung pertumbuhan ekonomi berkelanjutan.'
+            },
 
             // KOMINFO (7)
-            'NS119KF': { departemen: 'KOMINFO' },
-            'SN187KF': { departemen: 'KOMINFO' },
-            'NW205KF': { departemen: 'KOMINFO' },
-            'JS66KF': { departemen: 'KOMINFO' },
-            'EH108KF': { departemen: 'KOMINFO' },
-            'AW36KF': { departemen: 'KOMINFO' },
-            'HP6KF': { departemen: 'KOMINFO' },
+            'NS119KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'SN187KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'NW205KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'JS66KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'EH108KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'AW36KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
+            'HP6KF': { 
+                departemen: 'KOMINFO',
+                narasi: 'Mengelola publikasi, design, dan informasi kepada publik.'
+            },
 
-            // MINBA (1)
-            'MA183M': { departemen: 'MINBA' },
-            'AH71M': { departemen: 'MINBA' },
-            'WG59M': { departemen: 'MINBA' },
-            'NS166M': { departemen: 'MINBA' },
-            'JS55M': { departemen: 'MINBA' },
-            'AS201M': { departemen: 'MINBA' },
+            // MINBA (6)
+            'MA183M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik..'
+            },
+            'AH71M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik..'
+            },
+            'WG59M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik..'
+            },
+            'NS166M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik..'
+            },
+            'JS55M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik..'
+            },
+            'AS201M': { 
+                departemen: 'MINBA',
+                narasi: 'Mengembangkan minat dan bakat mahasiswa dalam bidang olahraga, seni, dan musik.'
+            },
 
             // PSDM-L (5)
-            'MS146PL': { departemen: 'PSDM-L' },
-            'NW92PL': { departemen: 'PSDM-L' },
-            'HG9PL': { departemen: 'PSDM-L' },
-            'RZ189PL': { departemen: 'PSDM-L' },
-            'GA114PL': { departemen: 'PSDM-L' },
+            'MS146PL': { 
+                departemen: 'PSDM-L',
+                narasi: 'Mengembangkan kompetensi kepemimpinan dan manajemen sumber daya mahasiswa.'
+            },
+            'NW92PL': { 
+                departemen: 'PSDM-L',
+                narasi: 'Mengembangkan kompetensi kepemimpinan dan manajemen sumber daya mahasiswa.'
+            },
+            'HG9PL': { 
+                departemen: 'PSDM-L',
+                narasi: 'Mengembangkan kompetensi kepemimpinan dan manajemen sumber daya mahasiswa.'
+            },
+            'RZ189PL': { 
+                departemen: 'PSDM-L',
+                narasi: 'Mengembangkan kompetensi kepemimpinan dan manajemen sumber daya mahasiswa.'
+            },
+            'GA114PL': { 
+                departemen: 'PSDM-L',
+                narasi: 'Mengembangkan kompetensi kepemimpinan dan manajemen sumber daya mahasiswa.'
+            },
 
             // PSDM-D (7)
-            'DA176PD': { departemen: 'PSDM-D' },
-            'HE33PD': { departemen: 'PSDM-D' },
-            'GE24PD': { departemen: 'PSDM-D' },
-            'BF197PD': { departemen: 'PSDM-D' },
-            'ND93PD': { departemen: 'PSDM-D' },
-            'MA120PD': { departemen: 'PSDM-D' },
-            'FR135PD': { departemen: 'PSDM-D' }
+            'DA176PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'HE33PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'GE24PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'BF197PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'ND93PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'MA120PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            },
+            'FR135PD': { 
+                departemen: 'PSDM-D',
+                narasi: 'Merencanakan dan melaksanakan program pengembangan keterampilan mahasiswa.'
+            }
         };
 
         // ============================================
@@ -598,7 +723,6 @@
             const code = document.getElementById('codeInput').value.trim().toUpperCase();
             const errorMsg = document.getElementById('errorMessage');
 
-            // Validasi input
             if (!code) {
                 errorMsg.textContent = '⚠️ Silakan masukkan kode akses!';
                 return;
@@ -610,28 +734,29 @@
             }
 
             errorMsg.textContent = '';
-
-            // Tampilkan loading
             showPage('loadingPage');
 
-            // Simulasi loading 2.8 detik
             setTimeout(() => {
-                const dept = departmentData[code].departemen;
-                displayResult(dept);
+                const data = departmentData[code];
+                displayResult(data.departemen, data.narasi);
                 showPage('resultPage');
             }, 2800);
         }
 
-        function displayResult(department) {
+        function displayResult(department, narasi) {
             const displayElement = document.getElementById('departmentDisplay');
+            const narasiElement = document.getElementById('departmentNarasi');
+            
             displayElement.innerHTML = '';
-
             const text = 'DEPARTEMEN ' + department;
+            
             for (let char of text) {
                 const span = document.createElement('span');
                 span.textContent = char;
                 displayElement.appendChild(span);
             }
+            
+            narasiElement.textContent = narasi;
         }
 
         function backToInput() {
@@ -648,23 +773,9 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        // Focus input saat halaman dimuat
         window.addEventListener('load', () => {
             document.getElementById('codeInput').focus();
         });
     </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIMASTA-ITS 2026</title>
-</head>
-<body>
-    <h1>Halo Staf yang Sedang Ingin Berlabuh!
-        Temukan Tempat Berlabuhmu!</h1>
 </body>
 </html>
